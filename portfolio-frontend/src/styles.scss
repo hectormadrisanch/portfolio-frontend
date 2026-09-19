@@ -1,4 +1,3 @@
-/* You can add global styles to this file, and also import other style files */
 /* Global CSS Reset */
 * {
   margin: 0;
@@ -6,9 +5,56 @@
   box-sizing: border-box;
 }
 
+/* Design System Variables */
+:root {
+  --color-primary: #0d6efd;
+  --color-primary-hover: #0b5ed7;
+  --color-text-main: #212529;
+  --color-text-muted: #495057;
+  --color-text-light: #6c757d;
+  --color-bg-main: #ffffff;
+  --color-bg-section: #f8f9fa;
+  --font-family-base: system-ui, -apple-system, sans-serif;
+}
+
 body {
-  font-family: system-ui, -apple-system, sans-serif;
-  background-color: #ffffff;
-  color: #1a1a1a;
+  font-family: var(--font-family-base);
+  background-color: var(--color-bg-main);
+  color: var(--color-text-main);
   -webkit-font-smoothing: antialiased;
+}
+
+/* Shared Components */
+.button {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+
+  &--primary {
+    background-color: var(--color-primary);
+    color: #ffffff;
+    border: 2px solid var(--color-primary);
+
+    &:hover {
+      background-color: var(--color-primary-hover);
+      border-color: var(--color-primary-hover);
+      transform: translateY(-2px);
+    }
+  }
+
+  &--secondary {
+    background-color: transparent;
+    color: var(--color-primary);
+    border: 2px solid var(--color-primary);
+
+    &:hover {
+      background-color: rgba(13, 110, 253, 0.1);
+      transform: translateY(-2px);
+    }
+  }
 }
