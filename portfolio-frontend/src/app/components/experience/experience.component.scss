@@ -1,0 +1,110 @@
+.experience {
+  padding: 5rem 2rem;
+  background-color: var(--color-bg-main);
+
+  &__container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  &__title {
+    font-size: 2.5rem;
+    color: var(--color-text-main);
+    margin-bottom: 3rem;
+    text-align: center;
+  }
+
+  &__timeline {
+    position: relative;
+    padding-left: 2rem;
+
+    /* Línea vertical principal de la línea de tiempo */
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 7px;
+      width: 2px;
+      background-color: #e9ecef;
+    }
+  }
+
+  &__item {
+    position: relative;
+    margin-bottom: 3rem;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__marker {
+    position: absolute;
+    left: -2rem;
+    top: 0.35rem;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: var(--color-primary);
+    border: 3px solid var(--color-bg-main);
+    box-shadow: 0 0 0 2px rgba(13, 110, 253, 0.2);
+    z-index: 1;
+  }
+
+  &__content {
+    background: #ffffff;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+    border: 1px solid #f1f3f5;
+  }
+
+  &__role {
+    font-size: 1.25rem;
+    color: var(--color-text-main);
+    margin-bottom: 0.25rem;
+  }
+
+  &__meta {
+    font-size: 0.9rem;
+    color: var(--color-text-light);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  &__company {
+    font-weight: 600;
+    color: var(--color-primary);
+  }
+
+  &__separator {
+    color: #dee2e6;
+  }
+
+  &__description {
+    color: var(--color-text-muted);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+  }
+
+  &__tech-list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  &__tech-item {
+    background-color: var(--color-bg-section);
+    color: var(--color-text-muted);
+    padding: 0.25rem 0.75rem;
+    border-radius: 100px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    border: 1px solid #e9ecef;
+  }
+}
