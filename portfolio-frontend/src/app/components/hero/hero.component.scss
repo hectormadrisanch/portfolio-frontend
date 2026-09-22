@@ -1,35 +1,35 @@
 .hero {
-  min-height: 65vh; /* Reducido porque el header ocupa espacio arriba */
+  padding-top: 10vh;
+  padding-bottom: 5rem;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  padding-bottom: 4rem;
+  align-items: flex-start;
 
   &__greeting {
     color: var(--color-primary);
-    font-size: 1rem;
+    font-size: 1.25rem; 
     font-weight: 700;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.15em;
     text-transform: uppercase;
     margin-bottom: 1.5rem;
   }
 
   &__headline {
     font-family: var(--font-family-display);
-    font-size: clamp(3.5rem, 8vw, 6.5rem);
+    font-size: clamp(4.5rem, 8vw, 8.5rem); 
     font-weight: 700;
-    line-height: 1.05;
+    line-height: 1.05; 
     color: var(--color-text);
     margin-bottom: 2rem;
-    letter-spacing: -0.02em;
-  }
+    letter-spacing: -0.03em;
+    }
 
   &__description {
     font-family: var(--font-family-base);
-    font-size: clamp(1.25rem, 3vw, 1.75rem);
+    font-size: clamp(1.25rem, 2.5vw, 1.85rem); 
     line-height: 1.6;
     font-weight: 300;
     color: var(--color-text-offset);
-    max-width: 850px;
+    max-width: 85ch; 
   }
 }
