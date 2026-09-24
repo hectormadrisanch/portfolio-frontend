@@ -1,0 +1,12 @@
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-tfg-detail',
+  standalone: true,
+  imports: [],
+  templateUrl: './tfg-detail.component.html',
+  styleUrl: './tfg-detail.component.scss'
+})
+export class TfgDetailComponent {
+
+}
