@@ -1,7 +1,24 @@
-<section class="hero" id="hero">
-  <p class="hero__greeting">Hello, my name is Héctor</p>
-  <h1 class="hero__headline">Junior Software Engineer.</h1>
-  <p class="hero__description">
-    I’m a recently graduated Computer Engineer based in Salamanca, specialized in Software Engineering. I am actively looking for my first professional opportunity to build scalable backend systems and clean frontend architectures.
-  </p>
+<section class="hero" id="home">
+  <div class="hero__inner">
+    <p class="hero__status">
+      <span class="hero__dot" aria-hidden="true"></span>
+      {{ ts.t().hero.status }}
+    </p>
+
+    <p class="hero__greeting">{{ ts.t().hero.greeting }}</p>
+
+    <h1 class="hero__title">{{ ts.t().hero.title }}</h1>
+
+    <p class="hero__description">{{ ts.t().hero.description }}</p>
+
+    <div class="hero__actions">
+      <a class="btn btn--primary" [routerLink]="['/']" fragment="projects">
+        {{ ts.t().hero.ctaPrimary }}
+        <span aria-hidden="true">→</span>
+      </a>
+      <a class="btn btn--ghost" [routerLink]="['/']" fragment="contact">
+        {{ ts.t().hero.ctaSecondary }}
+      </a>
+    </div>
+  </div>
 </section>

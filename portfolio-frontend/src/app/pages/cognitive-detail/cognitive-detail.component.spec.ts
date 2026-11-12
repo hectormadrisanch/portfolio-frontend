@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { provideRouter } from '@angular/router';
 
 import { CognitiveDetailComponent } from './cognitive-detail.component';
 
@@ -8,9 +9,9 @@ describe('CognitiveDetailComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [CognitiveDetailComponent]
-    })
-    .compileComponents();
+      imports: [CognitiveDetailComponent],
+      providers: [provideRouter([])],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(CognitiveDetailComponent);
     component = fixture.componentInstance;
@@ -19,5 +20,14 @@ describe('CognitiveDetailComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should render every section of the case study', () => {
+    const sections = fixture.nativeElement.querySelectorAll(
+      '.case-study__section',
+    );
+    expect(sections.length).toBe(
+      component.ts.t().detail.cognitive.sections.length,
+    );
   });
 });

@@ -1,0 +1,6 @@
+# Local AI tooling (skills, commands, manifests) - not part of the app.
+.opencode/
+opencode.json
+
+# Deployment artifacts (build zips)
+portfolio-frontend/deploy/

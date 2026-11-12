@@ -1,62 +1,172 @@
 .header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(11, 17, 24, 0.72);
+  border-bottom: 1px solid var(--color-border);
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+}
+
+.header__inner {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 3rem 0;
+  gap: var(--space-md);
+  width: min(100% - var(--gutter) * 2, var(--container));
+  height: var(--header-height);
+  margin-inline: auto;
+}
 
-  &__brand {
-    display: flex;
-    align-items: center;
+/* --- Brand --------------------------------------------------------------- */
+
+.header__brand {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  flex-shrink: 0;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  transition: opacity var(--dur) var(--ease-out);
+}
+
+.header__brand:hover {
+  opacity: 0.75;
+}
+
+.header__avatar {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 1px solid var(--color-border-strong);
+  object-fit: cover;
+}
+
+/* --- Navigation ---------------------------------------------------------- */
+
+.header__nav {
+  display: flex;
+  align-items: center;
+  gap: 0.15rem;
+  margin-left: auto;
+}
+
+.header__link {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.4rem;
+  padding: 0.5rem 0.7rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-text-offset);
+  transition:
+    color var(--dur) var(--ease-out),
+    background-color var(--dur) var(--ease-out);
+}
+
+.header__link:hover {
+  color: var(--color-text);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.header__number {
+  font-size: 0.625rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--color-primary);
+  opacity: 0.85;
+  font-variant-numeric: tabular-nums;
+}
+
+/* --- Language switch ----------------------------------------------------- */
+
+.header__lang {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  flex-shrink: 0;
+  padding: 0.45rem 0.7rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-pill);
+  background: transparent;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: var(--color-text-faint);
+  cursor: pointer;
+  transition:
+    border-color var(--dur) var(--ease-out),
+    color var(--dur) var(--ease-out);
+}
+
+.header__lang:hover {
+  border-color: var(--color-border-strong);
+}
+
+.header__lang .is-active {
+  color: var(--color-text);
+}
+
+.header__lang-sep {
+  opacity: 0.4;
+}
+
+/* --- Responsive ---------------------------------------------------------- */
+
+@media (max-width: 900px) {
+  .header__number {
+    display: none;
   }
 
-  &__brand-link {
-    display: flex;
-    align-items: center;
-    gap: 1rem; 
-    text-decoration: none;
-    color: var(--color-text);
-    transition: opacity 0.3s ease;
+  .header__link {
+    padding: 0.45rem 0.6rem;
+    font-size: 0.8125rem;
+  }
+}
 
-    &:hover {
-      opacity: 0.8;
-    }
+@media (max-width: 760px) {
+  .header__name {
+    display: none;
   }
 
-  &__avatar {
-    width: 65px;
-    height: 65px;
-    border-radius: 50%;
-    object-fit: cover; 
-    border: 2px solid var(--color-primary); 
+  .header__inner {
+    gap: var(--space-sm);
+    height: 64px;
   }
 
-  &__name {
-    font-size: 1.6rem;
-    font-weight: 700;
-    letter-spacing: -0.02em;
+  .header__link {
+    padding: 0.4rem 0.5rem;
+    font-size: 0.78125rem;
+  }
+}
+
+@media (max-width: 420px) {
+  .header__nav {
+    gap: 0;
   }
 
-  &__list {
-    display: flex;
-    gap: 3rem;
-    list-style: none;
+  .header__link {
+    padding: 0.4rem 0.35rem;
+    font-size: 0.75rem;
   }
 
-  &__link {
-    text-decoration: none;
-    color: var(--color-text);
-    font-size: 1.25rem; 
-    font-weight: 500;
-    transition: color 0.3s ease;
+  .header__lang {
+    padding: 0.4rem 0.55rem;
+  }
+}
 
-    &:hover {
-      color: var(--color-primary);
-    }
+@media (max-width: 480px) {
+  /* On very small screens the avatar goes away: the nav needs the room. */
+  .header__brand {
+    display: none;
   }
 
-  &__number {
-    font-weight: 700;
-    margin-right: 0.6rem;
-    font-size: 1.1rem;
+  .header__nav {
+    margin-left: 0;
+  }
+
+  .header__lang {
+    margin-left: auto;
   }
 }

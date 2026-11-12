@@ -1,36 +1,193 @@
-<section class="contact" id="contact" appScrollReveal>
-  <h2 class="contact__title">Get in Touch</h2>
-  <div class="contact__container">
-    <div class="contact__info">
-      <h3 class="contact__name">Héctor Madrigal Sánchez</h3>
-      
-      <div class="contact__details">
-        <p class="contact__email">
-          <a href="mailto:hectormadrisanch@gmail.com" class="contact__link">hectormadrisanch&#64;gmail.com</a>
+<section class="contact section" id="contact" appScrollReveal>
+  <div class="container contact__inner">
+    <div class="contact__intro">
+      <p class="section-kicker">{{ ts.t().contact.kicker }}</p>
+      <h2 class="section-title">{{ ts.t().contact.title }}</h2>
+      <p class="contact__description">{{ ts.t().contact.description }}</p>
+
+      <div class="contact__meta">
+        <p class="contact__direct">
+          <span>{{ ts.t().contact.direct }}</span>
+          <a href="mailto:hectormadrisanch@gmail.com">
+            hectormadrisanch&#64;gmail.com
+          </a>
         </p>
-        <p class="contact__phone">
-          <a href="tel:+34622711204" class="contact__link">+34 622 711 204</a>
-        </p>
+        <p class="contact__detail">{{ ts.t().contact.location }}</p>
+        <p class="contact__detail">{{ ts.t().contact.availability }}</p>
       </div>
 
-      <!-- Botón reactivo para enviar correo -->
-      <a href="mailto:hectormadrisanch@gmail.com" class="contact__button">Contact Me</a>
+      <div class="contact__social">
+        <a
+          href="https://www.linkedin.com/in/hector-madrigal-sanchez/"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="LinkedIn"
+          class="contact__icon"
+        >
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
+            />
+          </svg>
+        </a>
+
+        <a
+          href="https://github.com/hectormadrisanch"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="GitHub"
+          class="contact__icon"
+        >
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"
+            />
+          </svg>
+        </a>
+      </div>
     </div>
 
-    <div class="contact__social">
-      <!-- LinkedIn SVG -->
-      <a href="https://www.linkedin.com/in/hector-madrigal-sanchez/" target="_blank" aria-label="LinkedIn" class="contact__icon-link">
-        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-          <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-        </svg>
-      </a>
-      
-      <!-- GitHub SVG con tu enlace real -->
-      <a href="https://github.com/hectormadrisanch" target="_blank" aria-label="GitHub" class="contact__icon-link">
-        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-          <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
-        </svg>
-      </a>
+    <div class="contact__panel" aria-live="polite">
+      @switch (state()) {
+        @case ('sent') {
+          <div class="feedback feedback--success">
+            <span class="feedback__icon" aria-hidden="true">✓</span>
+            <h3 class="feedback__title">{{ ts.t().contact.successTitle }}</h3>
+            <p class="feedback__text">{{ ts.t().contact.successBody }}</p>
+            <button type="button" class="btn btn--ghost" (click)="reset()">
+              {{ ts.t().contact.sendAnother }}
+            </button>
+          </div>
+        }
+
+        @case ('mailto') {
+          <div class="feedback">
+            <span class="feedback__icon" aria-hidden="true">✉</span>
+            <h3 class="feedback__title">{{ ts.t().contact.mailtoTitle }}</h3>
+            <p class="feedback__text">{{ ts.t().contact.mailtoBody }}</p>
+            <a class="btn btn--primary" [href]="mailtoHref()">
+              {{ ts.t().contact.fallbackCta }}
+            </a>
+            <button type="button" class="feedback__link" (click)="reset()">
+              {{ ts.t().contact.sendAnother }}
+            </button>
+          </div>
+        }
+
+        @case ('error') {
+          <div class="feedback feedback--error">
+            <span class="feedback__icon" aria-hidden="true">!</span>
+            <h3 class="feedback__title">{{ ts.t().contact.errorTitle }}</h3>
+            <p class="feedback__text">{{ ts.t().contact.errorBody }}</p>
+            <a class="btn btn--primary" [href]="mailtoHref()">
+              {{ ts.t().contact.fallbackCta }}
+            </a>
+            <button type="button" class="feedback__link" (click)="reset()">
+              {{ ts.t().contact.sendAnother }}
+            </button>
+          </div>
+        }
+
+        @default {
+          <form class="contact__form" [formGroup]="form" (ngSubmit)="submit()" novalidate>
+            <div class="field">
+              <label class="field__label" for="contact-name">
+                {{ ts.t().contact.name }}
+              </label>
+              <input
+                id="contact-name"
+                class="field__input"
+                type="text"
+                formControlName="name"
+                autocomplete="name"
+                [placeholder]="ts.t().contact.namePlaceholder"
+                [class.is-invalid]="isInvalid(form.controls.name)"
+                [attr.aria-invalid]="isInvalid(form.controls.name)"
+                [attr.aria-describedby]="isInvalid(form.controls.name) ? 'contact-name-error' : null"
+              />
+              @if (isInvalid(form.controls.name)) {
+                <p class="field__error" id="contact-name-error">
+                  {{ errorFor(form.controls.name) }}
+                </p>
+              }
+            </div>
+
+            <div class="field">
+              <div class="field__row">
+                <label class="field__label" for="contact-reason">
+                  {{ ts.t().contact.reason }}
+                </label>
+                <span class="field__counter">
+                  {{ messageLength }}/{{ maxMessage }}
+                </span>
+              </div>
+              <textarea
+                id="contact-reason"
+                class="field__input field__input--area"
+                formControlName="message"
+                rows="4"
+                [placeholder]="ts.t().contact.reasonPlaceholder"
+                [class.is-invalid]="isInvalid(form.controls.message)"
+                [attr.aria-invalid]="isInvalid(form.controls.message)"
+                [attr.aria-describedby]="isInvalid(form.controls.message) ? 'contact-reason-error' : null"
+              ></textarea>
+              @if (isInvalid(form.controls.message)) {
+                <p class="field__error" id="contact-reason-error">
+                  {{ errorFor(form.controls.message) }}
+                </p>
+              }
+            </div>
+
+            <div class="field">
+              <label class="field__label" for="contact-email">
+                {{ ts.t().contact.email }}
+              </label>
+              <input
+                id="contact-email"
+                class="field__input"
+                type="email"
+                formControlName="email"
+                autocomplete="email"
+                [placeholder]="ts.t().contact.emailPlaceholder"
+                [class.is-invalid]="isInvalid(form.controls.email)"
+                [attr.aria-invalid]="isInvalid(form.controls.email)"
+                [attr.aria-describedby]="isInvalid(form.controls.email) ? 'contact-email-error' : null"
+              />
+              @if (isInvalid(form.controls.email)) {
+                <p class="field__error" id="contact-email-error">
+                  {{ errorFor(form.controls.email) }}
+                </p>
+              }
+            </div>
+
+            <!-- Honeypot: hidden from people, tempting for bots. -->
+            <div class="contact__honeypot" aria-hidden="true">
+              <label for="contact-website">Website</label>
+              <input
+                id="contact-website"
+                type="text"
+                formControlName="website"
+                tabindex="-1"
+                autocomplete="off"
+              />
+            </div>
+
+            <button
+              type="submit"
+              class="btn btn--primary contact__submit"
+              [disabled]="state() === 'sending'"
+            >
+              @if (state() === 'sending') {
+                <span class="spinner" aria-hidden="true"></span>
+                {{ ts.t().contact.sending }}
+              } @else {
+                {{ ts.t().contact.submit }}
+                <span aria-hidden="true">→</span>
+              }
+            </button>
+          </form>
+        }
+      }
     </div>
   </div>
 </section>

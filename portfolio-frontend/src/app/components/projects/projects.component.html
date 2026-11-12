@@ -1,64 +1,47 @@
-<section class="projects" id="projects">
-  <h2 class="projects__title">Featured Projects</h2>
-  <div class="projects__grid">
+<section class="projects section" id="projects">
+  <div class="container">
+    <header class="projects__header">
+      <p class="section-kicker">{{ ts.t().projects.kicker }}</p>
+      <h2 class="section-title">{{ ts.t().projects.title }}</h2>
+      <p class="section-lead">{{ ts.t().projects.lead }}</p>
+    </header>
 
-    <!-- Final Degree Project (TFG) -->
-    <a [routerLink]="['/project/tfg']" class="projects__card">      <div class="projects__image-wrapper">
-        <img src="assets/images/projects/tfg-management.jpg" alt="TFG Management System interface" class="projects__image">
-      </div>
-      <div class="projects__overlay">
-        <h3 class="projects__name">TFG Management & Tracking Web Platform</h3>        <div class="projects__details">
-          <p class="projects__description">
-            Comprehensive web platform managing the entire lifecycle of university Final Degree Projects. It handles the complete workflow from initial tutor assignment and document tracking to automated final grading.
-          </p>
-          <ul class="projects__tech-list">
-            <li class="projects__tech-item">Java 21</li>
-            <li class="projects__tech-item">Quarkus</li>
-            <li class="projects__tech-item">Angular 18</li>
-            <li class="projects__tech-item">Docker</li>
-          </ul>
-        </div>
-      </div>
-    </a>
+    <div class="projects__grid">
+      @for (project of ts.t().projects.items; track project.slug; let i = $index) {
+        <a
+          class="project"
+          [class.project--featured]="i === 0"
+          [routerLink]="['/project', project.slug]"
+          [appScrollReveal]="i * 90"
+        >
+          <div class="project__media">
+            <img
+              [src]="project.image"
+              [alt]="project.alt"
+              class="project__image"
+              loading="lazy"
+              width="1200"
+              height="750"
+            />
+          </div>
 
-    <!-- HealthTrack -->
-    <a [routerLink]="['/project/healthtrack']" class="projects__card">      <div class="projects__image-wrapper">
-        <img src="assets/images/projects/healthtrack.jpg" alt="HealthTrack interface" class="projects__image">
-      </div>
-      <div class="projects__overlay">
-        <h3 class="projects__name">HealthTrack</h3>
-        <div class="projects__details">
-          <p class="projects__description">
-            Comprehensive web platform for healthcare management. It digitalizes the entire patient workflow—from appointment scheduling and medical records to statistical reporting—through a secure client-server architecture.
-          </p>
-          <ul class="projects__tech-list">
-            <li class="projects__tech-item">PHP</li>
-            <li class="projects__tech-item">MySQL</li>
-            <li class="projects__tech-item">Client-Server</li>
-            <li class="projects__tech-item">UML Modeling</li>
-          </ul>
-        </div>
-      </div>
-    </a>
+          <div class="project__body">
+            <h3 class="project__title">{{ project.title }}</h3>
+            <p class="project__description">{{ project.description }}</p>
 
-    <!-- Cognitive Stimulation Platform -->
-    <a [routerLink]="['/project/cognitive-platform']" class="projects__card">      <div class="projects__image-wrapper">
-        <img src="assets/images/projects/cognitive-platform.jpg" alt="Cognitive Stimulation Platform interface" class="projects__image">
-      </div>
-      <div class="projects__overlay">
-        <h3 class="projects__name">Cognitive Stimulation Platform</h3>
-        <div class="projects__details">
-          <p class="projects__description">
-            Web application featuring cognitive stimulation games designed for people with disabilities. Developed as a tailored solution for the AFAIN association in Salamanca.
-          </p>
-          <ul class="projects__tech-list">
-            <li class="projects__tech-item">Angular 18</li>
-            <li class="projects__tech-item">TypeScript</li>
-            <li class="projects__tech-item">Tailwind CSS</li>
-          </ul>
-        </div>
-      </div>
-    </a>
+            <ul class="project__stack">
+              @for (tech of project.stack; track tech) {
+                <li class="tag">{{ tech }}</li>
+              }
+            </ul>
 
+            <span class="project__cta">
+              {{ ts.t().projects.viewCase }}
+              <span class="project__arrow" aria-hidden="true">→</span>
+            </span>
+          </div>
+        </a>
+      }
+    </div>
   </div>
 </section>

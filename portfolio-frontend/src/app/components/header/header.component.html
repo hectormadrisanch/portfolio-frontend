@@ -1,25 +1,38 @@
 <header class="header">
-  <div class="header__brand">
-    <a routerLink="/" class="header__brand-link">
-      <img src="hector.jpg" alt="Héctor Madrigal" class="header__avatar">
+  <div class="header__inner">
+    <a routerLink="/" class="header__brand" aria-label="Héctor Madrigal">
+      <img
+        src="hector.jpg"
+        alt=""
+        class="header__avatar"
+        width="34"
+        height="34"
+      />
       <span class="header__name">Héctor Madrigal</span>
     </a>
+
+    <nav class="header__nav" aria-label="Main navigation">
+      @for (link of links; track link.key) {
+        <a
+          class="header__link"
+          [routerLink]="['/']"
+          [fragment]="link.fragment"
+        >
+          <span class="header__number">{{ link.number }}</span>
+          <span>{{ ts.t().nav[link.key] }}</span>
+        </a>
+      }
+    </nav>
+
+    <button
+      type="button"
+      class="header__lang"
+      (click)="ts.toggle()"
+      aria-label="Change language / Cambiar idioma"
+    >
+      <span [class.is-active]="ts.lang() === 'en'">EN</span>
+      <span class="header__lang-sep" aria-hidden="true">/</span>
+      <span [class.is-active]="ts.lang() === 'es'">ES</span>
+    </button>
   </div>
-  
-  <nav class="header__nav">
-    <ul class="header__list">
-      <li class="header__item">
-        <a routerLink="/" class="header__link"><span class="header__number">01</span> home</a>
-      </li>
-      <li class="header__item">
-        <a href="/#education" class="header__link"><span class="header__number">02</span> education</a>
-      </li>
-      <li class="header__item">
-        <a href="/#projects" class="header__link"><span class="header__number">03</span> projects</a>
-      </li>
-      <li class="header__item">
-        <a href="/#contact" class="header__link"><span class="header__number">04</span> contact</a>
-      </li>
-    </ul>
-  </nav>
 </header>

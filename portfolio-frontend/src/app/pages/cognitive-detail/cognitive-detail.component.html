@@ -1,35 +1,58 @@
 <article class="case-study">
+  <a routerLink="/" class="case-study__back">
+    <span aria-hidden="true">←</span>
+    {{ ts.t().detail.back }}
+  </a>
+
   <header class="case-study__header">
-    <h1 class="case-study__title case-study__title--expanded">Cognitive Stimulation Gaming Platform</h1>
-    <p class="case-study__subtitle">Interactive web prototype designed to provide accessible and engaging cognitive exercises for user stimulation.</p>
+    <h1 class="case-study__title">{{ ts.t().detail.cognitive.title }}</h1>
+    <p class="case-study__subtitle">
+      {{ ts.t().detail.cognitive.subtitle }}
+    </p>
   </header>
 
- <div class="case-study__content">
-    <section class="case-study__section">
-      <h2 class="case-study__section-title">01. The Context</h2>
-      <p class="case-study__text">
-        The objective was to create a frictionless, highly interactive environment where users could perform cognitive exercises through gamification. The core challenge was tracking student evolution and performance over time without disrupting the interactive client-side experience.
-      </p>
-    </section>
+  <div class="case-study__content">
+    @for (section of ts.t().detail.cognitive.sections; track section.title; let i = $index) {
+      <section class="case-study__section" [appScrollReveal]="i * 60">
+        <h2 class="case-study__section-title">{{ section.title }}</h2>
 
-    <section class="case-study__section">
-      <h2 class="case-study__section-title">02. Architecture & Tech Stack</h2>
-      <p class="case-study__text">
-        The platform relies on a heavy-client architecture, delegating complex interactions to the frontend while maintaining a lightweight analytics backend.
-      </p>
-      <ul class="case-study__list">
-        <li class="case-study__list-item"><strong>Game Engine (Frontend):</strong> Angular drives the entire SPA, managing the complex dynamic state, user interactions, and rendering of the cognitive exercises.</li>
-        <li class="case-study__list-item"><strong>Analytics Tracking:</strong> A JSON-based backend implementation records statistical data, accurately tracking student performance and cognitive evolution across sessions.</li>
-        <li class="case-study__list-item"><strong>Styling:</strong> Tailwind CSS utilized for rapid, utility-first UI component generation.</li>
-      </ul>
-    </section>
+        @if (section.body) {
+          <p class="case-study__text">{{ section.body }}</p>
+        }
 
-    <section class="case-study__section">
-      <h2 class="case-study__section-title">03. Partnership & Implementation</h2>
-      <p class="case-study__text">
-        This platform is designed to be highly adaptable. If you represent an association, clinic, or educational center interested in testing or implementing this cognitive stimulation tool with your users, let's connect.
-      </p>
-      <a href="/#contact" class="case-study__link-btn">Contact Me</a>
-    </section>
+        @if (section.points; as points) {
+          <ul class="case-study__list">
+            @for (point of points; track point.label) {
+              <li class="case-study__list-item">
+                <strong>{{ point.label }}</strong> {{ point.text }}
+              </li>
+            }
+          </ul>
+        }
+
+        @if (section.link; as link) {
+          @if (link.router) {
+            <a
+              class="case-study__link-btn"
+              [routerLink]="['/']"
+              fragment="contact"
+            >
+              {{ link.label }}
+              <span aria-hidden="true">→</span>
+            </a>
+          } @else {
+            <a
+              class="case-study__link-btn"
+              [href]="link.href"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {{ link.label }}
+              <span aria-hidden="true">↗</span>
+            </a>
+          }
+        }
+      </section>
+    }
   </div>
 </article>

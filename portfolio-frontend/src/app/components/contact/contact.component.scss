@@ -1,89 +1,270 @@
-.contact {
-  padding: 6rem 0;
-  border-top: 1px solid var(--color-border);
-  margin-top: 4rem;
+.contact__inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(2rem, 6vw, 5rem);
+  align-items: start;
+}
 
-  &__title {
-    font-family: var(--font-family-display);
-    font-size: 3.5rem;
-    color: var(--color-text);
-    margin-bottom: 3rem;
+/* --- Intro --------------------------------------------------------------- */
+
+.contact__description {
+  max-width: 46ch;
+  margin-top: var(--space-sm);
+  font-size: var(--step-1);
+  line-height: 1.6;
+  color: var(--color-text-offset);
+}
+
+.contact__meta {
+  display: grid;
+  gap: 0.4rem;
+  margin-top: var(--space-lg);
+}
+
+.contact__direct {
+  display: grid;
+  gap: 0.15rem;
+  font-size: 0.8125rem;
+  color: var(--color-text-faint);
+}
+
+.contact__direct a {
+  width: fit-content;
+  font-size: var(--step-0);
+  font-weight: 500;
+  color: var(--color-text);
+  text-decoration: underline;
+  text-decoration-color: var(--color-border-strong);
+  text-underline-offset: 0.25em;
+  transition:
+    color var(--dur) var(--ease-out),
+    text-decoration-color var(--dur) var(--ease-out);
+}
+
+.contact__direct a:hover {
+  color: var(--color-primary);
+  text-decoration-color: var(--color-primary);
+}
+
+.contact__detail {
+  font-size: 0.8125rem;
+  color: var(--color-text-faint);
+}
+
+.contact__social {
+  display: flex;
+  gap: 0.6rem;
+  margin-top: var(--space-lg);
+}
+
+.contact__icon {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-pill);
+  color: var(--color-text-offset);
+  transition:
+    color var(--dur) var(--ease-out),
+    border-color var(--dur) var(--ease-out),
+    background-color var(--dur) var(--ease-out);
+}
+
+.contact__icon svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+}
+
+.contact__icon:hover {
+  color: var(--color-text);
+  border-color: var(--color-border-strong);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+/* --- Panel --------------------------------------------------------------- */
+
+.contact__panel {
+  padding: clamp(1.5rem, 3vw, 2.25rem);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-md);
+}
+
+.contact__form {
+  display: grid;
+  gap: 1.15rem;
+}
+
+/* --- Fields -------------------------------------------------------------- */
+
+.field__row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-sm);
+}
+
+.field__label {
+  display: block;
+  margin-bottom: 0.45rem;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--color-text-offset);
+}
+
+.field__counter {
+  font-size: 0.75rem;
+  color: var(--color-text-faint);
+  font-variant-numeric: tabular-nums;
+}
+
+.field__input {
+  width: 100%;
+  padding: 0.75rem 0.9rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-bg-offset);
+  font-size: 0.9375rem;
+  transition:
+    border-color var(--dur) var(--ease-out),
+    box-shadow var(--dur) var(--ease-out),
+    background-color var(--dur) var(--ease-out);
+}
+
+.field__input::placeholder {
+  color: var(--color-text-faint);
+}
+
+.field__input:hover {
+  border-color: var(--color-border-strong);
+}
+
+.field__input:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px var(--color-primary-soft);
+}
+
+.field__input--area {
+  min-height: 140px;
+  line-height: 1.6;
+  resize: vertical;
+}
+
+.field__input.is-invalid {
+  border-color: rgba(255, 82, 119, 0.6);
+}
+
+.field__error {
+  margin-top: 0.4rem;
+  font-size: 0.78125rem;
+  color: var(--color-primary);
+}
+
+/* --- Honeypot ------------------------------------------------------------ */
+
+.contact__honeypot {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* --- Submit -------------------------------------------------------------- */
+
+.contact__submit {
+  justify-self: start;
+  margin-top: 0.25rem;
+}
+
+.spinner {
+  width: 14px;
+  height: 14px;
+  border: 2px solid currentColor;
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: spin 0.9s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
   }
+}
 
-  &__container {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    flex-wrap: wrap;
-    gap: 3rem;
+/* --- Feedback states ----------------------------------------------------- */
+
+.feedback {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+  padding-block: 0.5rem;
+}
+
+.feedback__icon {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  margin-bottom: 0.35rem;
+  border-radius: 50%;
+  background: var(--color-primary-soft);
+  color: var(--color-primary);
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
+.feedback--success .feedback__icon {
+  background: rgba(67, 169, 163, 0.14);
+  color: var(--color-secondary);
+}
+
+.feedback__title {
+  font-size: var(--step-1);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--color-text);
+}
+
+.feedback__text {
+  max-width: 42ch;
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: var(--color-text-offset);
+}
+
+.feedback .btn {
+  margin-top: var(--space-sm);
+}
+
+.feedback__link {
+  margin-top: 0.35rem;
+  padding: 0;
+  border: 0;
+  background: none;
+  font-size: 0.8125rem;
+  color: var(--color-text-faint);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+  cursor: pointer;
+  transition: color var(--dur) var(--ease-out);
+}
+
+.feedback__link:hover {
+  color: var(--color-text);
+}
+
+/* --- Responsive ---------------------------------------------------------- */
+
+@media (max-width: 900px) {
+  .contact__inner {
+    grid-template-columns: 1fr;
   }
-
-  &__name {
-    font-size: 1.5rem;
-    color: var(--color-text);
-    margin-bottom: 0.5rem;
-    font-weight: 700;
-  }
-
-  &__details {
-    margin-bottom: 2rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-
-  &__link {
-    color: var(--color-text-offset);
-    text-decoration: none;
-    font-size: 1.1rem;
-    transition: color 0.3s ease;
-
-    &:hover {
-      color: var(--color-primary);
-    }
-  }
-
-  &__button {
-    display: inline-block;
-    padding: 0.8rem 2.5rem;
-    background-color: transparent;
-    color: var(--color-primary);
-    border: 2px solid var(--color-primary);
-    border-radius: 4px;
-    font-size: 1rem;
-    font-weight: 600;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    cursor: pointer;
-
-    &:hover {
-      background-color: var(--color-primary);
-      color: var(--color-bg);
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(255, 82, 119, 0.2); // Usando tu color primary
-    }
-  }
-
-  &__social {
-    display: flex;
-    gap: 1.5rem;
-  }
-
-  &__icon-link {
-    color: var(--color-text-offset);
-    transition: all 0.3s ease;
-
-    svg {
-      width: 36px;
-      height: 36px;
-      fill: currentColor; // Permite que el SVG herede el color del enlace
-    }
-
-    &:hover {
-      color: var(--color-primary);
-      transform: translateY(-4px);
-    }
-  }
-
-
 }
